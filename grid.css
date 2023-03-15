@@ -1,0 +1,183 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background: #f5f5f5;
+}
+
+.container {
+    max-width: 960px;
+    /* Margin 100px of top and bottom, auto on the left and right */
+    margin: 100px auto;
+    padding: 10px;
+
+    /* Once you specify display as grid, you won't see any change because we need  */
+    /* to specify how many colums we want and how big we want those columns to be*/
+    display: grid;
+
+
+    /*------------------------- GRID TEMPLATE COLUMNS ------------------------- */
+    /* The way it works is we set some sizes, for instance first column 100px and second column 200px.*/
+    /* This will arrange all the items in the container in a way that the first item will be 100px, second 200px, */
+    /* the third item will arrange itself  below the first item and will take the size of 100px, */
+    /* the fouth item will arrange itself below the second item and will take the size if 200px and so on. */
+    /* grid-template-columns: 100px 200px; */
+
+    /* We can also add a third column or use "%" instead of "px" */
+    /* grid-template-columns: 30% 40%; */
+
+    /* What you will most commonly be using is fractions "1fr" "2fr", these are fractional units */
+    /* grid-template-columns: 1fr 2fr; */
+
+    /* If we set the values of grid-template-columns to 1fr 1fr 1fr, this will arrage all the individual items to take up equal space, */
+    /* while taking up the entire width of whatever the container is and keeping the number of columns to three. */
+    /* I want three items to have 1fr, what I can do is use the repeat funtion */
+    /* This is how to divide items into columns and how to give columns certain widths */
+    /* grid-template-columns: repeat(3, 1fr); */
+
+    /* You can also make a grid wrap */
+    /* What this is saying is, if we go below 200px, then it will wrap */
+    /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+
+
+    /*------------------------- GRID PROPERTY FOR SPACING ------------------------- */
+    /* Creating space between columns i.e vertical spacing*/
+    /* column-gap: 10px; */
+
+    /* Creating space between rows i.e horizontal spacing*/
+    /* row-gap: 10px; */
+
+    /* If you want your items to have the same vertical and horizontal spacing you can use "gap" */
+    gap: 10px;
+
+    /*------------------------- GRID AUTO ROWS ------------------------- */
+    /* Let talk about height, height right now is going by each grid item. */
+    /* If you add any content to an item, the item will grow accordingly and all of columns in that row will take up that height as well  */
+    /* grid-auto-rows will set the width of all the columns to 200px, regardless of the content they contain */
+    /* grid-auto-rows: 200px; */
+
+    /* There's also a function minmax that you can use, it defines a size range greater than or equal to min or less than or equal to max */
+    /* The items with less content will be set to 100px and the ones with content will be set to auto */
+    /* grid-auto-rows: minmax(100px, auto); */
+
+
+    /*------------------------- GRID TEMPLATE ROWS ------------------------- */
+    /* This is just like grid-template-columns, except that instead of going horizontally, it goes veritaclly */
+    /* This will give a height of 200px to the first row, 100px to the second row and 200px to the third */
+    /* grid-template-rows: 200px 500px 200px; */
+
+    /* This will set the height of the items according to the content of the item which has the most content */
+    /* Most of the time we don't use this property, will explain it later on */
+    /* grid-template-rows: repeat(3, 1fr); */
+
+
+    /*------------------------- DEV TOOLS ------------------------- */
+    /* Open Chrome or Firefox devtools and inspect the page, you will find a small box with the name of "grid" on it right beside the main div container*/
+    /* After clicking on it you will see the full structure of your grid, in a sanbox */
+
+
+    /*------------------------- ALIGN ITEMS ------------------------- */
+    /* All the changes make here will take affect only if we have a width assigned grid-template-rows: 200px 500px 200px;. "Align" works for vertical placement on Y-axis */
+    /* The default for it is stretch, it stretches accourding to the item that has the most content in it */
+    /* align-items: stretch; */
+
+    /* What start is going to do is, push all the individual items to the very top/start of every row */
+    /* align-items: start; */
+
+    /* End will push all the individual items to the bottom/end of every row */
+    /* align-items:end; */
+
+
+    /*------------------------- JUSTIFY CONTENT------------------------- */
+    /* In to see how it works, we need to set grid-template-columns: repeat(3, 100px). "Justify" works for horizontal placement on X-axis */
+    /* This will center the grid container to the center of the page */
+    /* justify-content: center; */
+
+    /* Start will place the container to the very left/start of the page */
+    /* justify-content: start; */
+
+    /* End will place the container to the very right/end of the page */
+    /* justify-content: end; */
+
+    /* Space-around will insert even space between each columns */
+    /* justify-content: space-around; */
+}
+
+
+.item {
+    background: steelblue;
+    color: #fff;
+    font-size: 20px;
+    padding: 20px;
+    border: skyblue 1px solid;
+}
+
+/* We can use psedu selectors to grab one of the items as we don't have individual id's, this will select the second item in the container */
+/* .item:nth-of-type(2) {
+    height: 50px;
+    width: 50px; */
+
+/* Align-self is used for placing the actual item somewhere on the Y-axis(veritaclly), while align-items is for the container.*/
+/* You can set is to center and push the item to the center on Y-axis. */
+/* You can set is to start and push the item to the top/start on Y-axis. */
+/* You can set is to end and push the item to the botton/end on Y-axis. */
+/* align-self: center; */
+
+/* Justify-self is used for placing the actual item somewhere on the X-axis(horizontally), while justify-items is for the container.*/
+/* You can set is to center and push the item to the center on X-axis. */
+/* You can set is to start and push the item to the top/start on X-axis. */
+/* You can set is to end and push the item to the botton/end on X-axis. */
+/* } */
+
+
+/*------------------------- GRID COLUMN ------------------------- */
+/* Spanning an item accross to number of columns/X-axis */
+
+/* .item:nth-of-type(1) {
+    background: black; */
+/* This will start your item at line one of the sandbox on X-axis */
+/* grid-column-start: 1; */
+/* This will end your item at line 3 of the sandbox on X-axis */
+/* grid-column-end: 3; */
+/* Alternatively you can use grid-column to give it a start and end in on line */
+/* grid-column: 1 / 3; */
+/* And you can also use span, which is saying start at one and span 2 columns */
+/* grid-column: 1 / span 2; */
+/* } */
+
+/*------------------------- GRID ROW ------------------------- */
+/* Spanning an item accross to number of rows/Y-axis */
+
+/* .item:nth-of-type(3) {
+    background: #333; */
+/* This will start your item at line 2 of the sandbox on Y-axis */
+/* grid-row-start: 2; */
+/* This will end your item at line 4 of the sandbox on Y-axis */
+/* grid-row-end: 4; */
+/* Alternatively you can use grid-row to give it a start and end in on line */
+/* grid-row: 2 / 4; */
+/* And you can also use span, which is saying start at one and span 2 rows */
+/* grid-row: 2 / span 2; */
+/* } */
+
+/* Want to do the same with Item 4 */
+/* .item:nth-of-type(4){
+    background: #333;
+    grid-row: 2 / 4;
+} */
+
+/*------------------------- RESPONSIVENESS ------------------------- */
+/* We can add responsiveness with grid */
+@media(max-width: 500px) {
+    .container {
+        /* This will adjust the grid to 1fr at 500px */
+        grid-template-columns: 1fr;
+    }
+}
