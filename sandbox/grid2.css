@@ -15,7 +15,7 @@ body {
     display: grid;
 
 
-    /*------------------------- GRID TEMPLATE COLUMNS ------------------------- */
+    /*------------------------- GRID TEMPLATE AREAS ------------------------- */
     /* It is like a miniature representation of the overall layout of the website/grid in textual form*/
     /* Doing this alone, will set the items side by side. We need to set grid-areas after it */
     grid-template-areas:

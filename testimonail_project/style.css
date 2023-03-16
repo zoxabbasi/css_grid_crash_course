@@ -20,9 +20,12 @@ body {
     display: grid;
     /* grid-template-columns: repeat(4, 1fr); */
     gap: 30px;
-    grid-template-areas: 
-    'daniel daniel jonathan kira'
-    'jeanette patrick patrick kira' ;
+
+    /* To set the default size of columns to 1fr, so that all the columns are of equal size */
+    grid-auto-columns: 1fr;
+    grid-template-areas:
+        'daniel daniel jonathan kira'
+        'jeanette patrick patrick kira';
 }
 
 .card {
@@ -87,23 +90,23 @@ body {
     color: #fff;
 }
 
-.card:nth-of-type(1){
+.card:nth-of-type(1) {
     grid-area: daniel;
 }
 
-.card:nth-of-type(2){
+.card:nth-of-type(2) {
     grid-area: jonathan;
 }
 
-.card:nth-of-type(3){
+.card:nth-of-type(3) {
     grid-area: jeanette;
 }
 
-.card:nth-of-type(4){
+.card:nth-of-type(4) {
     grid-area: patrick;
 }
 
-.card:nth-of-type(5){
+.card:nth-of-type(5) {
     grid-area: kira;
 }
 
@@ -143,3 +146,24 @@ body {
         grid-row: 5;
     }
 } */
+
+@media(max-width: 900px) {
+    .testimonials {
+        grid-template-areas:
+            'daniel daniel'
+            'jonathan kira'
+            'jeanette kira'
+            'patrick patrick';
+    }
+}
+
+@media(max-width: 500px) {
+    .testimonials {
+        grid-template-areas:
+            'daniel'
+            'jonathan'
+            'kira'
+            'jeanette'
+            'patrick';
+    }
+}
